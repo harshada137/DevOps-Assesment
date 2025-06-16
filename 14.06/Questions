@@ -1,0 +1,15 @@
+Docker Weekend Task - 1
+Date-14/6/25
+
+1. 	What is the need of DevOps?
+
+2. 	Write a note on the difference between Virtualization vs Containerization vs Bare Metal.
+
+3. 	Create an httpd (apache) container, inside that container create 2 more html pages (eg. home.html and about.html) which
+    will be accessible from the browser.
+
+4. 	Create image from httpd container created from above question and push that image to
+a.  Docker hub
+b.  ECR
+
+5.  Create the list of commands with its usage and examples.
