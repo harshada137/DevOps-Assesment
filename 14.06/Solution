@@ -1,0 +1,245 @@
+Q.1. is need of Docker ?
+
+* What is Docker?
+  Docker is an open-source platform used to automate the deployment, scaling, and management of applications. It packages an application and all its dependencies into a container, ensuring it works consistently across different environments.
+
+* Why Do We Need Docker? (Purpose & Needs)
+1. Solve the "It works on my machine" Problem
+-  Developers often face issues where an app works on their local machine but not on a server or another system.
+-  Docker containers include everything the app needs (code, libraries, runtime, etc.), so it runs the same everywhere.
+
+2. Lightweight and Fast
+-  Containers are more lightweight than Virtual Machines (VMs) because they share the host OS kernel.
+-  They start faster and use less memory and disk space than traditional VMs.
+ 
+3. Portability
+-  Docker containers can run on any system (Windows, Linux, Mac) where Docker is installed.
+-  This makes application migration and testing across environments easier (e.g., Dev → Test → Prod).
+ 
+4. Isolation
+-  Each container is isolated from others.
+-  One crashing app or conflict won't affect others running on the same system.
+ 
+5. Version Control and Reproducibility
+-  Docker files can track versions of your environment.
+-  You can rebuild containers exactly as they were, which helps in debugging and consistency.
+ 
+6. Simplified Configuration
+-  Docker lets you define environment variables, volumes, ports, etc., easily in a configuration file (Dockerfile or docker-compose.yml).
+
+7. Microservices-Friendly
+-  Docker is ideal for building and deploying microservices architectures, where each microservice runs in its own container.
+
+8. Scalability and CI/CD
+-  Works seamlessly with CI/CD pipelines (like Jenkins, GitHub Actions).
+-  Supports orchestration tools like Kubernetes and Docker Swarm for auto-scaling and load balancing.
+
+
+
+
+Q.2. Diff Between Virtualization vs Containerization vs Bare Metal 
+
+1. Virtualization
+-  Virtualization is a technology that allows multiple virtual machines (VMs), each with its own operating system, to run on a single physical machine using a hypervisor.
+-  Each VM is isolated and emulates a complete hardware system.
+-  Examples of hypervisors: VMware, VirtualBox, KVM, Hyper-V.
+ 
+2 Containerization
+-  Containerization is a lightweight form of virtualization where applications run in isolated user spaces called containers, sharing the same host operating system kernel.
+-  Uses tools like Docker.
+-  Containers are faster and more portable than traditional VMs.
+-  Ideal for DevOps, microservices, and cloud-native development.
+ 
+3 Bare Metal
+-  Bare Metal refers to a physical computer or server that runs an operating system and applications directly on the hardware without any virtualization or container layer.
+-  It provides direct access to hardware resources.
+-  Common in traditional IT setups and high-performance computing environments.
+
+
+Bare Metal vs Virtualization vs Containerization
+ 1. Definition
+ *  Bare Metal:
+ -  Directly runs applications and OS on physical hardware without any abstraction layer.
+  
+ * Virtualization:
+ - Uses a hypervisor to create and run multiple virtual machines, each with its own OS, on the same physical hardware.
+ 
+ * Containerization:
+ - Runs applications in isolated containers that share the host OS kernel but keep the app environment separate.
+
+ 2. Architecture
+ * Bare Metal:
+ - Hardware → Operating System → Applications
+
+ * Virtualization:
+ - Hardware → Hypervisor → Guest OS (per VM) → Applications
+
+ * Containerization:
+ - Hardware → Host OS → Container Engine (Docker) → Containers → Applications
+
+ 3. Isolation
+ * Bare Metal:
+ - No app-level isolation — all apps share the same OS and resources.
+
+ * Virtualization:
+ - Strong isolation — each VM is fully independent with its own OS.
+
+ * Containerization:
+ - Process-level isolation — containers are separate but share the same kernel.
+ 
+ 4. Resource Usage
+ * Bare Metal:
+ - Full hardware resources are available to one OS and its apps.
+
+ * Virtualization:
+ - More resources are used since each VM runs a full OS.
+
+ * Containerization:
+ - Efficient — containers share OS and require fewer resources.
+
+ 5. Startup Time
+ * Bare Metal:
+ - Moderate — depends on the OS boot time.
+
+ * Virtualization:
+ - Slow — each VM has to boot its own OS.
+
+ * Containerization:
+ - Fast — containers start in seconds.
+
+ 6. Examples
+ * Bare Metal:
+ - Physical servers, standalone desktops.
+
+ * Virtualization:
+ - VMware, VirtualBox, Hyper-V, KVM.
+
+ * Containerization:
+ - Docker, Podman, containerd, CRI-O.
+
+
+Q.3. Create an httpd (apache) container, inside that container create 2 more html pages (eg. home.html and about.html) which will be accessible from the browser.
+
+Commands history
+  1. docker pull httpd
+  2. docker image ls
+  3. docker run -d --name apache-cont -p 80:80 httpd
+  4. docker container ls
+  5. docker exec -it 24abd4968c1c bin/bash
+  6. docker exec -it 24abd4968c1c sh
+  7. docker exec -it 24abd4968c1c bash
+  8.  history   
+
+  1. cd /usr/share/nginx/html
+  2. cd /usr/local/apache2/htdocs
+  3. ls
+  4. apt install nano
+  5. apt update
+  6. apt install nano
+  7. ls
+  8. nano hello.html
+  9. nano about.html
+  10.nano index.html
+  11. history
+
+
+Q.4 List of Docker Commands with use and Example
+1. docker --version
+* Use: Check the installed Docker version
+* Example: docker --version
+
+2. docker info
+* Use: Show system-wide information about Docker
+* Example: docker info
+
+3. docker pull
+* Use: Download a Docker image from Docker Hub
+* Example: docker pull nginx
+
+4. docker images
+* Use: List all downloaded Docker images
+* Example: docker images
+
+5. docker rmi
+* Use: Remove an image from your system
+* Example: docker rmi nginx
+
+6. docker ps
+* Use: Show all currently running containers
+* Example: docker ps
+
+7. docker ps -a
+* Use: Show all containers (including stopped ones)
+* Example: docker ps -a
+
+8. docker run
+* Use: Create and start a new container
+* Example: docker run nginx
+
+9. docker run -d
+* Use: Run a container in detached (background) mode
+* Example: docker run -d nginx
+
+10. docker run -it
+* Use: Run a container interactively with terminal access
+* Example: docker run -it ubuntu bash
+
+11. docker start
+* Use: Start a stopped container
+* Example: docker start mycontainer
+
+12. docker stop
+* Use: Stop a running container
+* Example: docker stop mycontainer
+
+13. docker restart
+* Use: Restart a running or stopped container
+* Example: docker restart mycontainer
+
+14. docker rm
+* Use: Remove a stopped container
+* Example: docker rm mycontainer
+
+15. docker exec
+* Use: Run a command inside a running container
+* Example: docker exec -it mycontainer bash
+
+16. docker logs
+* Use: View logs generated by a container
+* Example: docker logs mycontainer
+
+17. docker build
+* Use: Build an image from a Dockerfile
+* Example: docker build -t myimage .
+
+18. docker tag
+* Use: Tag an image with a new name or version
+* Example: docker tag myimage myrepo/myimage\:v1
+
+19. docker push
+* Use: Upload an image to Docker Hub
+* Example: docker push myrepo/myimage\:v1
+
+20. docker network ls
+* Use: List all Docker networks
+* Example: docker network ls
+
+21. docker volume ls
+* Use: List all Docker volumes
+* Example: docker volume ls
+
+22. docker inspect
+* Use: View detailed information about a container or image
+* Example: docker inspect nginx
+
+23. docker save
+* Use: Save an image as a .tar archive file
+* Example: docker save -o nginx.tar nginx
+
+24. docker load
+* Use: Load an image from a .tar archive file
+* Example: docker load -i nginx.tar
+
+25. docker-compose up
+* Use: Start multi-container applications using docker-compose.yml
+* Example: docker-compose up
