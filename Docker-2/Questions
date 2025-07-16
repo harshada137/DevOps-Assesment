@@ -1,0 +1,23 @@
+Docker Task2
+Date: 04/07/25
+1.	Write a brief explanation of what Docker volumes are and why they are used in containerized environments.
+State different types of volumes in Docker and also make a note on difference between them.
+2.	Demonstrate the use of Named Volume.
+•	Create a Docker Named volume named mydata. 
+•	Attach volume to a Nginx Container
+•	Create an HTML file named index.html with some content (e.g., "Hello, Docker Volumes!") on your host machine. Copy this file into the mydata.
+•	Verify that the index.html file is accessible from within the container by starting a simple HTTP request.
+3.	Write a brief explanation of what Docker networks.
+Write the difference between host network and bridge network.
+4.	Demonstrate the use of Custom Network
+•	Create a custom bridge network named my_network.
+•	Start two containers, one using the nginx image and another using the httpd image.
+•	Attach both containers to the my_network network.
+•	Test Network Connectivity: Ensure that the nginx container can communicate with the httpd container over the custom network. You can do this by sending an HTTP request from one container to another using tools like curl.
+5.	Write a note on Dockerfile with usage of its attributes.
+6.	What is difference between CMD and ENTRYPOINT?
+7.	What is difference between ADD and COPY?
+8.	Write a Dockerfile to run Nodejs application build an image from it and create a container using that image (also include persistent volume and network in Dockerfile).
+9.	Write a Dockerfile to create a python application build image from it and push that image to private repository of Docker hub.
+10.	Prepare a documentation in README.md with proper screenshots and push that file to your Git hub repository. 
+
